@@ -7,7 +7,7 @@ export class mongooseConnection {
     // connection to the cloud database
     static connect(callback: any){
         const dbConnectionString = 'mongodb+srv://human:jasam4242@human.x14kg.mongodb.net/human?retryWrites=true&w=majority'
-        mongoose.connect(dbConnectionString, {useNewUrlParser: true, useUnifiedTopology:true})
+        mongoose.connect(dbConnectionString, {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false})
         .then((result: any)=> {
             console.log('Successfully connected to the Database')
             callback
