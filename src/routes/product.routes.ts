@@ -1,8 +1,9 @@
-import express, { Router, Request, Response } from "express";
+import express, { Router, Request, Response, Application } from 'express';
 const Product = require("../models/product.model")
 const router: Router = express.Router();
 
 
+export const ProductRoutes = (app: Application) => {
 // GET
 
 // get all necklaces + bracelets
@@ -57,15 +58,7 @@ router.get("/products/:id", async (req: any, res: any) => {
 
 // Create product
 router.post("/createProduct", async (req: Request, res: Response) => {
-    const newProduct = new Product({
-        name: req.body.name,
-        category: req.body.category,
-        description: req.body.description,
-        price: req.body.price,
-        imgLink: req.body.imgLink,
-        isSold: req.body.isSold,
-        tags: req.body.tags
-    })
+    const newProduct = req.body
     newProduct.save((err: Error, resp: Response) => {
         if (err) {
             res.status(500).send('Error connecting to the Database');
@@ -102,5 +95,6 @@ router.delete("/deleteProduct/:id", async(req: Request, res: Response) => {
     })
  })
 
+ app.use('/api/products', router);
 
-module.exports = router
+}

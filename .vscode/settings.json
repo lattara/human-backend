@@ -4,7 +4,9 @@
         "dbname",
         "errormsg",
         "firstname",
+        "humanisthebest",
         "jasam",
+        "mongodb",
         "successmsg"
     ]
 }

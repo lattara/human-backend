@@ -11,7 +11,7 @@ export const orderSchema = new Schema({
     },
     products: [
         {
-        type: productSchema,
+        type: Schema.Types.ObjectId, ref: 'products',
         required: true
         }
     ],
@@ -29,4 +29,4 @@ export const orderSchema = new Schema({
     },
 })
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model('Orders', orderSchema)

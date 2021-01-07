@@ -7,8 +7,7 @@ export const productSchema = new Schema({
         
     },
     category: {
-        type: String,
-        
+        type: String, enum: ["necklace", "bracelet"]
     },
     description: {
         type: String,

@@ -1,5 +1,4 @@
-import { O_DIRECTORY } from "constants"
-
+import  {orderSchema}  from "./order.model"
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
@@ -12,12 +11,17 @@ export const userSchema = new Schema({
         type: String,
         required: true
     },
-    contact:[{
+    password: {
+        type: String,
+        required: true,
+        default: ''
+    },
+    contact:{
         email: {
             type: String,
             required:true
         },
-        address: [ {
+        address: {
             street: {
                 type: String,
                 required: true
@@ -34,14 +38,11 @@ export const userSchema = new Schema({
                 type: String,
                 required: true
             }
-
         }
-           
-        ]
-    }]
+    }
 ,
     isLoggedIn: {
-        type: Number,
+        type: Boolean,
         required: true
     },
     created: {
@@ -49,12 +50,12 @@ export const userSchema = new Schema({
         default: Date(),
     },
 
-    orders: [
+    orders: 
         {
-            type: Order,
+            type: Array,
             default: []
         }
-    ]
+    
 })
 
-module.exports = mongoose.model('userSchema', userSchema)
+module.exports = mongoose.model('users', userSchema)

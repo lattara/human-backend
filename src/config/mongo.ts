@@ -1,7 +1,4 @@
-import { Schema } from "inspector";
-import { connect } from "mongodb";
 const mongoose = require("mongoose")
-const Schema = mongoose.Schema
 
 export class mongooseConnection {
     // connection to the cloud database
