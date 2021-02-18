@@ -58,7 +58,7 @@ router.get("/products/:id", async (req: any, res: any) => {
 
 // Create product
 router.post("/createProduct", async (req: Request, res: Response) => {
-    const newProduct = req.body
+    const newProduct = new Product(req.body)
     newProduct.save((err: Error, resp: Response) => {
         if (err) {
             res.status(500).send('Error connecting to the Database');

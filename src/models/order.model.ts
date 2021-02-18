@@ -5,6 +5,10 @@ const Schema = mongoose.Schema
 
 
 export const orderSchema = new Schema({
+    orderName: {
+        type: String,
+        default: ''
+    },
     userReference: {
         type: ObjectID,
         required: true
@@ -16,6 +20,7 @@ export const orderSchema = new Schema({
         }
     ],
     notes: {
+        // put radio button on size // man wrist womans wrist 
         type: String,
         required: false
     },
@@ -27,6 +32,10 @@ export const orderSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    orderedOn: {
+        type: String,
+        default: Date
+    }
 })
 
 module.exports = mongoose.model('Orders', orderSchema)
